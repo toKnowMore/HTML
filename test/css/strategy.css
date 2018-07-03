@@ -1,0 +1,111 @@
+html,body {
+    margin: 0;
+    padding: 0;
+}
+p {
+    margin: 0;
+}
+.audioDiv {
+    width: 6.7rem;
+    height: 1.4rem;
+    margin: 0.4rem auto;
+    background-color: #f8f8f8;
+    border: 1px solid #ededed;
+    position: relative;
+}
+
+.audioDiv div {
+    display: inline-block;
+}
+
+.audioDiv .leftDiv {
+    margin-left: 0.16rem;
+    margin-right: 0.16rem;
+    padding-top: 0.2rem;
+}
+
+.audioDiv .leftDiv img {
+    width: 1rem;
+    vertical-align: bottom;
+}
+
+.audioDiv .rightDiv {
+    width: 78%;
+    position: absolute;
+    top:13%;
+    right: 0;
+}
+
+.audioDiv .rightDiv .controls p {
+    display: inline-block;
+}
+
+.rightDiv > p {
+    font-size: 0.28rem;
+    color: #666666;
+    display: inline-block;
+}
+
+.controls {
+    margin-top: 0.15rem;
+    width: 100%;
+}
+
+.controls > p {
+    font-size: 0.24rem;
+    color: #666666;
+}
+
+.controls .startTime {
+    margin-right: 4%;
+}
+
+.controls .endTime {
+    margin-left: 3%;
+}
+
+.controls .centerDiv {
+    width: 60%;
+    position: relative;
+}
+
+.controls .centerDiv .line {
+    width: 100%;
+    background-color: #cccccc;
+    border-radius: 0.1rem;
+    height: 0.08rem;
+}
+
+.centerDiv > img {
+    position: absolute;
+    top: 32%;
+    left: -5%;
+    width: 0.3rem;
+}
+.header .title {
+    font-size: 0.4rem;
+}
+.header {
+    padding: 0.4rem 0.24rem  0 0.24rem;
+}
+.container {
+    margin: 0.4rem 0 0.5rem 0;
+    padding: 0 0.24rem;
+}
+.container p {
+    font-size: 0.3rem;
+    color: #4B4B4B;
+    line-height: 0.5rem;
+}
+.footer {
+    padding: 0 0.24rem;
+}
+.footer p {
+    font-size: 0.3rem;
+    color: #FF6363;
+    line-height: 0.5rem;
+    margin-bottom: 0.3rem;
+}
+.footer img {
+    width: 100%;
+}

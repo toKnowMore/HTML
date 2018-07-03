@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,maximum-scale=0.5,minimum-scale=0.5,initial-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no, address=no">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../../global/jquery.min.js"></script>
+    <script src="../../global/main.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="../js/ConfigInfo.js"></script>
+    <title></title>
+    <style type="text/css">
+        html, body {
+            padding: 1rem 1rem 0 1rem;
+            margin: 0;
+        }
+
+
+        .linen {
+            width: 100%;
+            height: 1px;
+            background-color: #EFEFEF;
+        }
+
+
+        .c-content-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .c-content-text {
+            margin-top: 1rem;
+            /*text-indent: 2em;*/
+            text-align: justify;
+            text-justify: inter-ideograph;
+            font-size: 1.2rem;
+            line-height: 2.5rem;
+        }
+
+        .c-content-image {
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .c-title {
+            font-weight: bold;
+            font-size: 1.7rem;
+            color: #010101;
+        }
+
+        .c-video-box {
+            border: 1px solid black;
+            width: 99%;
+            height: 12rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .c-btn-comment {
+            float: right;
+            display: inline-block;
+            width: 6rem;
+            height: 1.5rem;
+            background-color: #FF6565;
+            border-radius: 2rem;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            padding-top: 0.2rem;
+            text-align: center;
+            color: white;
+            line-height: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .c-comment-header {
+            margin-top: 1rem;
+        }
+
+        .c-comment-header-img {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+        }
+
+        .c-comment-username {
+            color: #8f8f92;
+            font-size: 1rem;
+            margin-top: 1rem;
+            margin-left: 1rem;
+        }
+
+        .c-comment-time {
+            color: #8f8f92;
+            font-size: 0.9rem;
+            float: right;
+            margin-top: 0.5rem;
+        }
+
+        .c-comment-text {
+            margin-left: 2rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            line-height: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .c-head-img {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        .c-more-comment-btn {
+            border: 1px solid #FF6565;
+            border-radius: 0.2rem;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            padding-top: 0.2rem;
+            padding-bottom: 0.2rem;
+            color: #FF6565;
+            font-size: 1rem;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .audioDiv {
+            width: 100%;
+            height: 5.5rem;
+            margin-top: 1.2rem;
+            background-color: #f8f8f8;
+            border: 1px solid #ededed;
+            display: none;
+        }
+
+        .audioDiv div {
+            display: inline-block;
+        }
+
+        .audioDiv .leftDiv {
+            margin-left: 3%;
+            margin-right: 3%;
+        }
+
+        .audioDiv .leftDiv img {
+            width: 3rem;
+        }
+
+        .audioDiv .rightDiv {
+            width: 78%;
+        }
+
+        .audioDiv .rightDiv .controls p {
+            display: inline-block;
+        }
+
+        .rightDiv > p {
+            margin-top: 5%;
+            font-size: 1rem;
+            color: #666666;
+            display: inline-block;
+        }
+
+        .controls {
+            margin-top: 0.8rem;
+            width: 100%;
+        }
+
+        .controls > p {
+            font-size: 0.9rem;
+            color: #666666;
+        }
+
+        .controls .startTime {
+            margin-right: 4%;
+        }
+
+        .controls .endTime {
+            margin-left: 3%;
+        }
+
+        .controls .centerDiv {
+            width: 60%;
+            position: relative;
+        }
+
+        .controls .centerDiv .line {
+            width: 100%;
+            background-color: #cccccc;
+            border-radius: 0.1rem;
+            height: 0.2rem;
+        }
+
+        .centerDiv > img {
+            position: absolute;
+            top: 30%;
+            left: -5%;
+            width: 1rem;
+        }
+
+        .red {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+
+<body>
+    <img src="" class="c-head-img">
+    <h3 class="c-title" style="font-weight: bold"></h3>
+
+    <div class="audioDiv">
+    <audio src=""></audio>
+    <div class="leftDiv">
+        <img src="../img/icon_play.png" alt="">
+    </div>
+    <div class="rightDiv">
+        <p>春节前人力资源三大核心</p>
+        <div class="controls">
+            <p class="startTime">00:00</p>
+            <div class="centerDiv">
+                <div class="line"></div>
+                <img src="../img/icon_voice_position.png" alt="">
+            </div>
+            <p class="endTime">10:00</p>
+        </div>
+    </div>
+</div>
+    <div class="linen"></div>
+
+    <div class="c-text-box"></div>
+
+    <div class="c-video-box">
+    <video width="100%" height="100%" controlsList="nodownload" poster class="c-video-player">
+    </video>
+</div>
+
+    <div class="linen" style="height: 0.5rem"></div>
+
+    <div style="padding: 0.5rem">
+        <div style="display: inline-block;
+    border-left: 0.3rem solid #FF6565;
+    margin-top: 0.3rem;
+    padding-left: 0.5rem;">学员留言</div>
+
+        <div class="c-btn-comment">
+            <img src="../img/icon_comment.png" style="margin-top: -0.3rem">我要留言
+        </div>
+    </div>
+    <div class="c-comment-box"></div>
+    <div class="c-more-comment-box" style="text-align: center;padding-top: 1rem;padding-bottom: 1rem;">
+        <span class="c-more-comment-btn">查看全部留言</span>
+    </div>
+<script type="text/javascript">
+    function GetRequest() {
+        var url = location.search; //获取url中"?"符后的字串
+        var theRequest = {};
+        if(url.indexOf("?") !== -1) {
+            var str = url.substr(1);
+            var strs = str.split("&");
+            for(var i = 0; i < strs.length; i++) {
+                theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+
+    var Request = GetRequest();
+    var is_app;
+    var course_id;
+
+    is_app = Request['is_app'];//课程id唯一代码
+
+    course_id = Request['course_id'];
+
+    if (is_app != 1) {
+        $(".c-btn-comment").css("display", "none");
+        $(".audioDiv").css("display", "block");
+    }
+
+    var Url = location.href;
+    var url = location.href.split("#")[0];
+
+    $.ajax({
+        url: $api.course_details,
+        async: false,
+        type: 'POST',
+        data: {
+            course_id: course_id
+        },
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            if (data.status === 666) {
+                $('title').html(data.data.course_name);
+
+                if (data.data.img_text === "" || data.data.img_text === undefined) {
+                    $('.c-head-img').css('display', 'none');
+                } else {
+                    $('.c-head-img').attr('src', data.data.img_text);
+                }
+
+                if (data.data.attach_video === '' || data.data.attach_video === undefined) {
+                    $(".c-video-box").css("display", "none");
+                } else {
+                    $(".c-video-box").css("display", "block");
+                    $(".c-video-player").attr({"src": data.data.attach_video, "poster": data.data.img_plus});
+                }
+
+                //音频
+                $("audio").attr("src", data.data.course_url);
+                $(".audioDiv>.rightDiv>p").text(data.data.course_mark);
+
+                var try_Time = data.data.course_length;
+
+                var time = formatSeconds(try_Time);
+
+                var str = false;
+                $(".leftDiv>img").click(function () {
+                    if (!str) {
+                        $(".leftDiv>img").attr("src", "../img/icon_pause.png");
+                        str = true;
+                        play();
+                    } else if (str) {
+                        $(".leftDiv>img").attr("src", "../img/icon_play.png");
+                        str = false;
+                        stop();
+                    }
+
+                });
+
+                var timer;
+
+                function play() {
+                    var audio = document.getElementsByTagName("audio")[0];
+                    audio.play();
+                    timer = setInterval(function () {
+                        var currentTime = audio.currentTime;
+
+                        $(".startTime").text(formatSeconds(currentTime));
+
+                        var pencent = currentTime / try_Time * 100;
+
+                        $(".centerDiv>img").css("left", pencent - 5 + '%');
+
+                        if (pencent >= 100) {
+                            stop();
+                        }
+                    }, 200);
+                }
+
+                function stop() {
+                    var audio = document.getElementsByTagName("audio")[0];
+                    audio.pause();
+                    clearInterval(timer);
+                }
+
+                $(".endTime").text(time);
+                $('.c-title').text(data.data.course_name);
+                if (data.data.course_desc !== "") {
+                    var arr = JSON.parse(data.data.course_desc);
+                    for (var i = 0; i < arr.length; i++) {
+                        if (arr[i].paragraph_type === 'title') {
+                            var title = "<li class='c-content-title'>" + arr[i].paragraph_body + "</li>";
+                            $('.c-text-box').append(title);
+
+                        } else if (arr[i].paragraph_type === 'text' && arr[i].font_color === 'red') {
+                            var text = "<li class='c-content-text red'>" + arr[i].paragraph_body + "</li>";
+                            $('.c-text-box').append(text);
+
+                        } else if (arr[i].paragraph_type === 'img') {
+                            var image = "<img class='c-content-image' src='" + arr[i].paragraph_body + "'/>";
+                            $('.c-text-box').append(image);
+
+                        } else if (arr[i].paragraph_type === 'text') {
+                            var text = "<li class='c-content-text'>" + arr[i].paragraph_body + "</li>";
+                            $('.c-text-box').append(text);
+                        }
+                    }
+                }
+
+                var carr = data.data.commentList;
+
+                for (var i = 0; i < carr.length; i++) {
+                    var obj = carr[i];
+                    var imgsrc = obj.user_avatar;
+                    if (obj.user_avatar === "" || obj.user_avatar === undefined) {
+                        imgsrc = "../img/xueyuanliuyan_touxiang_image.png";
+                    }
+                    var nickname = obj.user_nickname;
+                    if (obj.user_nickname === "" || obj.user_nickname === undefined) {
+                        nickname = "听者分享";
+                    }
+                    var text = " <div><div class='c-comment-header'>" +
+                        "<img class='c-comment-header-img' src='" + imgsrc + "'/> " +
+                        "<span class='c-comment-username'>" + nickname + "</span> " +
+                        "<span class='c-comment-time'>" + obj.create_time + "</span> " +
+                        "</div> " +
+                        "<p class='c-comment-text'>" + obj.comment_content + "</p> " +
+                        "<div class='linen'></div> " +
+                        "</div>";
+
+                    $('.c-comment-box').append(text);
+                }
+
+                getConfig(url, data.data.course_name, data.data.course_mark, data.data.img_plus, Url);
+            }
+        },
+        error: function (result) {
+        }
+    });
+
+    $('.c-btn-comment').on('click', function () {
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if (isAndroid) {
+            window.toCourseComment.toCourseComment(course_id);
+        } else if (isiOS) {
+            window.webkit.messageHandlers.sendName.postMessage(course_id);
+        }
+    });
+
+
+    $('.c-more-comment-box').on('click', function () {
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if (isAndroid) {
+            window.toMoreCourseComment.toMoreCourseComment(course_id);
+        } else if (isiOS) {
+            window.webkit.messageHandlers.seeMoreComment.postMessage(course_id);
+        }
+    });
+</script>
+</body>
+</html>

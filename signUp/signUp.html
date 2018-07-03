@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>报名</title>
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="css/signUp.css">
+</head>
+<body>
+    <div id="box">
+       <div class="header">
+           <img src="img/titleBg.png" alt="">
+           <p>报名具体信息</p>
+       </div>
+        <div class="container">
+            <div class="shopName inputDiv">
+                <p>店铺名称</p>
+                <input type="text" placeholder="请输入您的店铺名称">
+            </div>
+            <div class="userName inputDiv">
+                <p>您的姓名</p>
+                <input type="text" placeholder="请输入您的姓名">
+            </div>
+            <div class="userLink inputDiv">
+                <p>联系电话</p>
+                <input type="number" placeholder="请输入您的电话">
+            </div>
+            <div class="userAdd inputDiv">
+                <p>选择地址</p>
+                <div id="distpicker1">
+                    <select name="pro" id="pro"></select>
+                    <select name="city" id="city"></select>
+                    <select name="area" id="area"></select>
+                </div>
+            </div>
+            <div class="userNumber inputDiv">
+                <p>报名人数</p>
+                <input type="number" placeholder="请输入报名人数">
+            </div>
+            <div class="userTeacher inputDiv">
+                <p>店务老师</p>
+                <input type="text" placeholder="请输入您的店务老师,可为空">
+            </div>
+        </div>
+        <div class="button">立即报名</div>
+        <div class="wait">
+            <img src="img/loading.gif" alt="">
+        </div>
+
+        <div class="pay">
+            <div class="weXin">
+                <img src="img/zhifufangshi_weixinzhifu_image@2x.png" alt="" class="logo">
+                <p>微信</p>
+                <img src="img/weigouxuan@2x.png" alt="" class="payType">
+            </div>
+            <div class="ali">
+                <img src="img/zhifufangshi_zhifubao_image@2x.png" alt="" class="logo">
+                <p>支付宝</p>
+                <img src="img/weigouxuan@2x.png" alt="" class="payType">
+            </div>
+        </div>
+
+        <div class="zhe"></div>
+    </div>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/distpicker.data.js"></script>
+    <script src="js/distpicker.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/signUp.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+.container .input input {
+    text-align: right;
+}
+.footer .submit {
+    margin: 0.3rem auto 0.3rem;
+    width: 6rem;
+    background-color: #FF6363;
+    border-radius: 0.45rem;
+    height: 0.9rem;
+}
+.footer .submit a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    line-height: 0.9rem;
+    text-align: center;
+    border-radius: 0.45rem;
+    font-size: 0.44rem;
+}
+.footer {
+    width: 100%;
+}
+.footer img {
+    width: 100%;
+}
+.footer .let {
+    text-align: center;
+    color: #4B4B4B;
+    font-size: 0.32rem;
+}
+.footer .after_share {
+    color: #FF6363;
+    font-size: 0.32rem;
+    padding-left: 0.24rem;
+    line-height: 0.5rem;
+}
+.lead {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background-color: black;
+    opacity: 0.8;
+    display: none;
+}
+.lead img {
+    margin-top: 0.5rem;
+    width: 2rem;
+    margin-left: 55%;
+    margin-bottom: 1rem;
+}
+.lead p {
+    text-align: center;
+    color: lightgoldenrodyellow;
+    font-size: 0.5rem;
+    padding: 0 0.24rem;
+    line-height: 0.9rem;
+}
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3){
+    /*iphoneX*/
+    #box {
+        padding-top: 0.2rem;
+        padding-bottom: 0.3rem;
+    }
+    .footer {
+        margin-top: 1.3rem;
+    }
+    .footer img {
+        margin-top: 1rem;
+    }
+}
+@media only screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio:2){
+    /*iphone6*/
+    .footer {
+        margin-top: 1.1rem;
+    }
+    .footer img {
+        margin-top: 0.7rem;
+    }
+
+}
+@media only screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio:2){
+    /*iphone6*/
+    .footer {
+        margin-top: 1.2rem;
+    }
+    .footer img {
+        margin-top: 0.7rem;
+    }
+}
+@media only screen and (device-width:414px) and (device-height:736px) and (-webkit-device-pixel-ratio:3){
+    /*iphone6plus*/
+    .footer {
+        margin-top: 1.2rem;
+    }
+    .footer img {
+        margin-top: 0.75rem;
+    }
+}
+/**
+ *  Galaxy S4 landscape
+ */
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 3)
+{
+    .footer {
+        margin-top: 1.2rem;
+    }
+    .footer img {
+        margin-top: 0.7rem;
+    }
+}
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 2)
+{
+    .footer {
+        margin-top: 1.2rem;
+    }
+    .footer img {
+        margin-top: 0.7rem;
+    }
+}
+@media screen
+and (device-width: 360px)
+and (device-height: 740px)
+and (-webkit-device-pixel-ratio: 2)
+{
+    .footer {
+        margin-top: 1.2rem;
+    }
+    .footer img {
+        margin-top: 1rem;
+    }
+}
+

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,maximum-scale=0.5,minimum-scale=0.5,initial-scale=1,user-scalable=no">
+		<meta name="format-detection" content="telephone=no, address=no">
+		<title>专辑分享</title>
+		<script src="../../global/jquery.min.js"></script>
+		<script src="../../global/main.js"></script>
+		<script src="../js/uaCheck.js"></script>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+		<script src="../js/ConfigInfo.js"></script>
+		<style type="text/css">
+			html,body {
+				font-size: 10px;
+				/*1rem=10px*/
+				margin: 0;
+			}
+
+			#box {
+				width: 100%;
+				background-color: lightgray;
+				padding-bottom: 9rem;
+			}
+			
+			p {
+				margin: 0;
+			}
+			
+			#box>div {
+				background-color: white;
+				padding-left: 4rem;
+				padding-right: 2rem;
+			}
+			
+			#box .bigImg {
+				padding-left: 0;
+				padding-right: 0;
+			}
+			
+			.bigImg img {
+				width: 100%;
+				height: 50rem;
+			}
+			
+			.introduce {
+				padding-top: 3rem;
+				padding-bottom: 3rem;
+				margin-bottom: 1rem;
+			}
+			
+			.introduce img {
+				margin-right: 1.4rem;
+				vertical-align: text-bottom;
+			}
+			
+			.introduce p {
+				display: inline-block;
+				font-size: 3.8rem;
+				color: #333333;
+				font-weight: bold;
+				margin: 0;
+			
+			}
+			.content1 {
+				padding-top: 3rem;
+				margin-bottom: 1rem;
+			}
+			
+			.content1 .name {
+				padding-bottom: 3rem;
+				font-size: 4rem;
+				color: #333333;
+				border-bottom: 1px solid gainsboro;
+			}
+			
+			.content1>.text {
+				width: 95%;
+				font-size: 3.2rem;
+				margin-top: 2rem;
+				color: #333333;
+				letter-spacing: 0.1rem;
+				line-height: 6rem;
+				margin-right: 0;
+				text-justify: inter-ideograph;
+			}
+
+			.content1>div {
+				width: 45%;
+			}
+			
+			.content1 .buy {
+				display: inline-block;
+				padding-bottom: 4rem;
+			}
+			
+			.content1 .keshi {
+				display: inline-block;
+				padding-bottom: 4rem;
+			}
+			
+			.buy .yimai {
+				padding-top: 4.8rem;
+				text-align: center;
+				font-size: 4rem;
+				
+			}
+			
+			.buy .text {
+				font-size: 3rem;
+				text-align: center;
+				margin-top: 0;
+				margin-right: 0;
+				opacity: 0.5;
+			
+			}
+			
+			.keshi .yimai {
+				padding-top: 4.8rem;
+				text-align: center;
+				font-size: 4rem;
+
+			}
+			
+			.keshi .text {
+				font-size: 3rem;
+				text-align: center;
+				margin-top: 0;
+				margin-right: 0;
+				opacity: 0.5;
+			}
+			.content2 {
+				padding-left: 4rem;
+			}
+			
+			.content2 .top {
+				margin: 0;
+				border-bottom: 1px solid gainsboro;
+			}
+			
+			.classDetail .left {
+				width: 85%;
+				padding-top: 3rem;
+				display: inline-block;
+			}
+			
+			.classDetail {
+				width: 100%;
+				border-bottom: 1px solid gainsboro;
+				padding-bottom: 3.4rem;
+			}
+			
+			.classDetail .left .p1 {
+				font-size: 3.4rem;
+				padding-bottom: 2rem;
+				width: 100%;
+				font-weight: bold;
+				opacity: 0.8;
+			}
+			
+			.classDetail .left .p2 {
+				font-size: 2.9rem;
+				opacity: 0.5;
+			}
+			
+			.classDetail .right {
+				padding-top: 4rem;
+				display: inline-block;
+			}
+			
+			.classDetail .right img {
+				width: 7rem;
+				height: 7rem;
+			}
+			
+			.content3 {
+				margin-top: 1rem;
+			}
+			
+			.top {
+				border-bottom: 1px solid gainsboro;
+			}
+			
+			.content3 .text p {
+				font-size: 3rem;
+				color: #666666;
+				line-height: 6rem;
+				padding-bottom: 3rem;
+				padding-top: 1rem;
+				text-justify: inter-ideograph;
+			}
+			
+			.content4 {
+				border-bottom: 1px solid gainsboro;
+			}
+			
+			.content4 .text {
+				font-size: 3rem;
+				color: #666666;
+				line-height: 5rem;
+				padding-bottom: 3rem;
+				padding-right: 4rem;
+			}
+			.foot {
+				position: fixed;
+				bottom: 0;
+				width: 100%;
+
+			}
+			.foot div {
+				width: 50%;
+				display: inline-block;
+				text-align: center;
+				padding: 1rem 0 1rem 0;
+				float: left;
+			}
+
+			.foot div a{
+				display: inline-block;
+				width: 100%;
+				line-height: 8rem;
+				text-decoration: none;
+				font-size: 3.5rem;
+				color: #FFFFFF;
+			}
+
+			.foot .left {
+				background-color: #447fea;
+			}
+			.foot .right {
+				background-color: #ff6363;
+			}
+			.active {
+				color: #ff6363;
+			}
+			.red {
+				color: red;
+			}
+		</style>
+	<body>
+			<div id="box">
+				<div class="bigImg">
+					<img src="" alt="" />
+				</div>
+				<div class="introduce">
+					<img src="../img/titleBg.png" />
+					<p>专辑简介</p>
+				</div>
+				<div class="content1">
+					<p class="name"></p>
+					<div class="text"></div>
+					<div class="buy">
+						<p class="yimai">1860</p>
+						<p class="text">已购买</p>
+					</div>
+					<div class="keshi">
+						<p class="yimai">1860</p>
+						<p class="text">课时</p>
+					</div>
+				</div>
+				<div class="content2">
+					<div class="top introduce">
+						<img src="../img/titleBg.png" />
+						<p>精彩课程目录</p>
+					</div>
+				</div>
+				<audio src=""></audio>
+			</div>
+			<div class="foot">
+				<div class="left">
+					<a href="javascript:void(0)">打开APP</a>
+				</div>
+				<div class="right">
+					<a href="javascript:void(0)">下载APP</a>
+				</div>
+			</div>
+	<script type="text/javascript">
+
+        function GetRequest() {
+            var url = location.search; //获取url中"?"符后的字串
+            var theRequest = {};
+            if(url.indexOf("?") !== -1) {
+                var str = url.substr(1);
+                var strs = str.split("&");
+                for(var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+
+            var Request = GetRequest();
+            var Object_id;
+            Object_id = Request['album_id']; //课程id唯一代码
+
+			var Url = location.href;
+            var url = location.href.split("#")[0];
+
+			$.ajax({
+                    url: $api.album_details,
+                    type: 'POST',
+                    data: {
+                        'album_id': Object_id
+                        // 'album_id': 0
+                    },
+                    dataType: "json",
+                    success: function (result) {
+                        var data = result.data;
+                        console.log(result);
+                        if (data['img_plus']) {
+                            var bigImgSrc = data['img_plus'];
+                        } else {
+                            var bigImgSrc = '';
+                        }
+
+                        var name = data['lecturer_name'];
+                        var desc = data['lecturer_desc'].replace(/\s+/g, "<br>");
+                        var classArray = data['courseList'];
+                        var sold_num = data['sold_num'];
+                        var album_period = data['album_period'];
+                        $(".buy> .yimai").text(sold_num);
+                        $(".keshi> .yimai").text(album_period);
+                        $(".bigImg img").attr("src", bigImgSrc);
+                        $(".content1 .name").text(name);
+                        $(".content1>.text").html(desc);
+
+                        classArray.forEach(function (item, index) {
+                            var detail = $("<div></div>").addClass("classDetail").appendTo($("#box .content2"));
+                            var left = $("<div></div>").addClass("left").appendTo(detail);
+                            var p1 = $("<p></p>").addClass("p1").text(item['course_name']).appendTo($(left));
+                            var p2 = $("<p></p>").addClass("p2").text(item['create_time'] + "/" + item['access_times'] + "次学习").appendTo($(left));
+                            var right = $("<div></div>").addClass("right").appendTo(detail);
+                            $("<img />").attr("src", "../img/bofang.png").appendTo($(right));
+                        });
+
+                        var album_desc = JSON.parse(data['album_desc']);
+                        console.log(album_desc);
+
+                        for (var i = 0; i < album_desc.length; i++){
+                            var content = $("<div></div>").addClass("content3");
+                            $("#box").append($(content));
+                            var Intro = $("<div></div>").addClass("introduce top").appendTo($(content));
+                            $("<img />").attr("src", "../img/titleBg.png").appendTo($(Intro));
+
+                            $("<p></p>").html(album_desc[i].paragraph_title).appendTo($(Intro));
+                            var Text = $("<div></div>").addClass("text").appendTo($(content));
+                            var desc = album_desc[i].paragraph_content.replace(/\n/g, "<br>");
+                            if(album_desc[i].font_color === 'red'){
+                                $("<p class='red'></p>").html(desc).appendTo($(Text));
+							}else {
+                                $("<p></p>").html(desc).appendTo($(Text));
+							}
+						}
+
+                        var className = false;
+                        $('.classDetail .right img').click(function () {
+                            var index = $(this).parent().parent().index() - 1;
+                            $("audio").attr("src", classArray[index]['course_url']);
+
+                            for(i =0; i < classArray.length; i++){
+                                $(".classDetail").eq(i).children().eq(0).children().eq(0).removeClass("active");
+                                $(".classDetail").eq(i).children().eq(1).children().eq(0).attr("src", "../img/bofang.png");
+							}
+
+                            //试听时间
+                            var try_Time = classArray[index].course_freeLength;
+                            var myAudio = document.getElementsByTagName("audio")[0];
+                            if (!className) {
+                                $(".classDetail").eq(index).children().eq(0).children().eq(0).addClass("active");
+                                $(".classDetail").eq(index).children().eq(1).children().eq(0).attr("src", "../img/icon_pause.png");
+                                myAudio.play();
+                                getCurTime(index, try_Time);
+                                className = true;
+								//当前播放,其他的都不能播放
+
+                            } else {
+                                $(".classDetail").eq(index).children().eq(0).children().eq(0).removeClass("active");
+                                $(".classDetail").eq(index).children().eq(1).children().eq(0).attr("src", "../img/bofang.png");
+                                myAudio.pause();
+                                className = false;
+                                clearInterval(timer);
+                            }
+                        });
+
+                        var timer;
+                        //获取视频当前时间点
+                        function getCurTime(index, try_Time) {
+                            var myAudio = document.getElementsByTagName("audio")[0];
+                            timer = setInterval(function () {
+                                var nowTime = myAudio.currentTime;
+
+                                if (nowTime >= try_Time) { //判断是否超过试听长
+                                    $(".classDetail").eq(index).children().eq(0).children().eq(0).removeClass("active");
+                                    $(".classDetail").eq(index).children().eq(1).children().eq(0).attr("src", "../img/bofang.png");
+                                    myAudio.pause();
+                                    tryEnd();
+                                    myAudio.currentTime = 0;
+                                    clearInterval(timer);
+                                    alert("试听结束，更多精彩内容尽在预知来APP");
+                                }
+                            }, 500);
+                        }
+
+                        //打开App
+                        $(".foot .left").click(function () {
+							tryEnd();
+                        });
+
+                        $(".foot .right").click(function () {
+                            window.location.href = $api.download;
+                        });
+
+						getConfig(url, data.album_name, data.album_mark, data.img_plus, Url);
+                    },
+                    error: function (result) {
+                        alert("error");
+                    }
+                });
+
+            function tryEnd() {
+                if (browser.versions.ios) {
+
+                    window.location.href = "yuzhilai://";
+
+
+                    setTimeout(function () {
+
+
+                        window.location.href = $api.download;
+
+
+                        window.location.href = $api.download;  //为什么要加两遍我下面会说到					     
+                    }, 2000)
+
+                } else if (browser.versions.android) {
+
+
+                    window.location.href = "com.sharker://**";
+
+
+                    setTimeout(function () {
+
+
+                        window.location.href = $api.download;
+                    }, 2000)
+                }
+            }
+
+	</script>
+	</body>
+</html>

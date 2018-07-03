@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="80db9f80-52e2-474c-a482-4c3a522c23fc" name="localhost" url="http://192.168.31.217:8080">
+        <fileTransfer port="0" mountedRoot="E:\yuzhilai_html" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>

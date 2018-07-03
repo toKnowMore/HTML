@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>预知来助你领先</title>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maxinum-scale=1,width=device-width,viewport-fit=cover">
+    <meta content="telephone=no" name="format-detection">
+    <script src="js/flexible.min.js"></script>
+    <link rel="stylesheet" href="css/strategy.css">
+    <link rel="stylesheet" href="css/iphoneX.css">
+</head>
+<body>
+    <div id="box">
+        <div class="header">
+            <p class="title">高铭均先生业绩倍增3大策略</p>
+            <div class="audioDiv">
+                <audio src=""></audio>
+                <div class="leftDiv">
+                    <img src="img/pause.png" alt="">
+                </div>
+                <div class="rightDiv">
+                    <p>业绩倍增3大策略</p>
+                    <div class="controls">
+                        <p class="startTime">00:00</p>
+                        <div class="centerDiv">
+                            <div class="line"></div>
+                            <img src="img/icon_voice_position.png" alt="">
+                        </div>
+                        <p class="endTime">10:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <p>中国共产党领导的多党合作和政治协商制度作为我国一项基本政治制度，是中国共产党、中国人民和各民主党派、无党派人士的伟大政治创造，是从中国土壤中生长出来的新型政党制度。</p>
+        </div>
+        <div class="footer">
+            <p>想要学习更多美容院门店管理、人力资源、品牌营销、活动策划、品牌产品线，可识别二维码下载美业宝【预知来APP】，2万美业人都在学习。</p>
+            <img src="img/bg_03.png" alt="">
+        </div>
+    </div>
+</body>
+
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript">
+    function formatSeconds(s) {
+        var t;
+        if (s > 0) {
+            var timelength;
+            var hour = Math.floor(s / 3600);
+            if (hour < 10) {
+                hour = '0' + hour;
+            }
+            var min = Math.floor((s - hour * 3600) / 60);
+            if (min < 10) {
+                min = "0" + min;
+            }
+            var sec = parseInt((s - hour * 3600) % 60);
+            if (sec < 10) {
+                sec = "0" + sec;
+            }
+            if (hour < 1) {
+                timelength = min + ":" + sec;
+            } else {
+                timelength = hour + ":" + min + ":" + sec;
+            }
+            if (s > 0) {
+                return timelength;
+            }
+        }
+        return t;
+    }
+
+    var str = false;
+    $(".leftDiv>img").click(function () {
+        if (!str) {
+            $(".leftDiv>img").attr("src", "img/pause.png");
+            str = true;
+            play();
+        } else if (str) {
+            $(".leftDiv>img").attr("src", "img/play.png");
+            str = false;
+            stop();
+        }
+    });
+
+    var timer;
+
+    function play() {
+        var audio = document.getElementsByTagName("audio")[0];
+        audio.play();
+        timer = setInterval(function () {
+            var currentTime = audio.currentTime;
+
+            $(".startTime").text(formatSeconds(currentTime));
+
+            var pencent = currentTime / try_Time * 100;
+
+            $(".centerDiv>img").css("left", pencent - 5 + '%');
+
+            if (pencent >= 100) {
+                stop();
+            }
+        }, 200);
+    }
+
+    function stop() {
+        var audio = document.getElementsByTagName("audio")[0];
+        audio.pause();
+        clearInterval(timer);
+    }
+
+    // $(".endTime").text(time);
+    // $('.c-title').text(data.data.course_name);
+</script>
+<script src="js/api.js"></script>
+<script src="js/strategy.js"></script>
+</html>

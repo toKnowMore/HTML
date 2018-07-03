@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html,body {
+    font-size: 10px;
+}
+li {
+    list-style: none;
+}
+#box {
+    background-color: #F1F1F1;
+}
+#box .top {
+    width: 100%;
+    height: 8.7rem;
+    background-color: #FF6363;
+}
+#box .top>div {
+    display: inline-block;
+}
+#box .top .left {
+    padding: 2.2rem 0 0 3.2rem;
+    margin-right: 2rem;
+}
+#box .top .left img {
+    width: 5rem;
+    vertical-align: text-bottom;
+}
+#box .top .right p {
+    color:#F1F1F1;
+    font-size: 1.4rem;
+}
+#box .top .right .company {
+    margin-top: 2.4rem;
+}
+#box .top .right .number {
+    margin-top: 1.3rem;
+}
+#box .container {
+    background-color: #FFFFFF;
+    margin-top: 1rem;
+}
+#box .container ul li {
+    padding-top: 3.5rem;
+    padding-left: 2rem;
+}
+#box .container ul li .state {
+
+}
+#box .container ul li .state .point{
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #CDCDCD;
+    display: inline-block;
+    margin-right: 1.5rem;
+}
+#box .container ul li .state p {
+    display: inline-block;
+    font-size: 1.4rem;
+    color: #333333;
+    letter-spacing: 0.1rem;
+}
+#box .container ul li .time {
+    margin-top: 1rem;
+    padding-left: 2rem;
+}
+#box .container ul li .time p{
+    display: inline-block;
+    font-size: 1.2rem;
+    color: #999999;
+}
+#box .container ul li .time .data{
+    margin-right: 1rem;
+}
+#box .container ul li:nth-child(1) .state .point{
+    background-color: #FF6363;
+
+}
+#box .container ul li:nth-child(1) .state p {
+    color: #FF6363;
+}

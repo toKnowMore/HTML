@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>预知来-美业在线教育高端品牌</title>
+    <meta name="viewport" content="initial-scale=1.0,width=device-width">
+    <meta content="telephone=no" name="format-detection">
+    <script src="js/flexible.min.js"></script>
+    <link rel="stylesheet" href="css/base.css">
+    <script src="js/api.js"></script>
+</head>
+<body>
+    <div id="box">
+        <div class="header">
+            <img src="img/top.png" alt="">
+        </div>
+        <div class="container">
+            <div class="welcome">欢迎加入预知来学习创新美容商学</div>
+            <div class="res">注册后即可免费学习7大疯狂拓客模式</div>
+            <div class="content">
+                <div class="inputDiv">
+                    <img src="img/phone.png" alt="" class="phone">
+                    <input type="number" placeholder="请输入手机号" class="phoneNumber">
+                </div>
+                <div class="inputDiv">
+                    <img src="img/code.png" alt="" class="code">
+                    <input type="number" placeholder="请输入验证码" class="inputCode">
+                    <span class="getCode">获取验证码</span>
+                </div>
+            </div>
+            <div class="submit">
+                立即注册
+            </div>
+        </div>
+        <div class="footer">
+            <img src="img/foot.png" alt="">
+        </div>
+    </div>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+        function GetRequest() {
+            var url = location.search; //获取url中"?"符后的字串
+            var theRequest = {};
+            if(url.indexOf("?") !== -1) {
+                var str = url.substr(1);
+                var strs = str.split("&");
+                for(var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+
+        var Request = GetRequest();
+        var Object_id;
+        Object_id = Request['user_id']; //课程id唯一代码
+
+        function checkPhone() {
+            var phone = $(".phoneNumber").val();
+            var reg = /^[1][3,4,5,7,8,9][0-9]{9}$/;
+            if(!reg.test(phone)){
+                $(".phoneNumber").focus();
+                alert("手机号码有误");
+                return 0;
+            }else {
+                return phone;
+            }
+        }
+
+        function checkCode() {
+            var code = $(".inputCode").val();
+            if(!code){
+                alert("验证码不能为空");
+                $(".inputCode").focus();
+                return 0;
+            }else {
+                return code;
+            }
+        }
+
+        var timer;
+        function changeCode() {
+            var t = 59;
+            timer = setInterval(function () {
+                $(".getCode").text(t + '秒后重新发送');
+                t--;
+                if(t <= 0){
+                    clearInterval(timer);
+                    $(".getCode").text('获取验证码');
+                    code = false;
+                }
+            }, 800);
+        }
+
+        var code = false;
+        $(".getCode").click(function () {
+            var phone = checkPhone();
+            if(code === false){
+                code = true;
+                $.ajax({
+                    url: $api.getCode,
+                    type: 'POST',
+                    data: {
+                        tel: phone,
+                        type: 'REGISTER'
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                        console.log(result);
+                        if(result.status === 666){
+                            changeCode();
+                        }
+                    }
+                });
+            }
+        });
+
+        $(".inputCode").focus(function () {
+            checkPhone();
+        });
+        
+        $(".submit").click(function () {
+            var phone = checkPhone();
+            var code = checkCode();
+            $.ajax({
+                url: $api.sendInfo,
+                type: 'POST',
+                data: {
+                    user_id: Object_id,
+                    user_tel: phone,
+                    captcha: code
+                },
+                dataType: 'json',
+                success: function (result) {
+                    console.log(result);
+                    if(result.status === 444){
+                        alert(result.msg);
+                    }else if(result.status === 666){
+                        alert(result.msg);
+                        setTimeout(function(){
+                            window.location.href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.sharker';
+                        }, 2000);
+                    }
+
+                }
+            });
+        });
+    </script>
+</body>
+</html>

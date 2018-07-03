@@ -1,0 +1,317 @@
+html,body {
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+}
+p {
+    margin: 0;
+}
+#bookDetails {
+    width: 100%;
+    background-color: #F1F1F1;
+    padding-bottom: 5.5rem;
+}
+.header {
+    width: 100%;
+    background-color: white;
+    padding-bottom: 1rem;
+}
+.header>img {
+    height: 20.5rem;
+    width: 100%;
+}
+.header .book_name {
+    margin-top: 1.5rem;
+    padding-left: 2rem;
+}
+.header .book_name .btn {
+    font-size: 1.2rem;
+    display: inline-block;
+    background-color: #FF6363;
+    color: #FFFFFF;
+    border-radius: 0.3rem;
+    height: 1.8rem;
+    width: 3rem;
+    padding: 0.3rem;
+    text-align: center;
+    vertical-align: bottom;
+}
+.header .book_name p {
+    display: inline-block;
+    font-size: 1.9rem;
+    font-weight: bold;
+    margin-left: 1rem;
+    color: #333333;
+}
+.header .person_desc {
+    font-size: 1.5rem;
+    color: #999999;
+    margin-left: 2rem;
+    margin-top: 1.5rem;
+}
+.header .book_price {
+    margin-top: 2rem;
+    padding-left: 2rem;
+}
+.header .book_price .price {
+    font-size: 2.1rem;
+    color: #FF6363;
+    width: 15.5rem;
+    display: inline-block;
+}
+.header .book_price .storeDiv {
+    font-size: 1.4rem;
+    background-color: #419EF0;
+    color: #fff8ea;
+    border-radius: 50%;
+    display: inline-block;
+    padding: 0.1rem;
+    width: 1.7rem;
+    height: 1.7rem;
+    text-align: center;
+    line-height: 1.7rem;
+}
+.header .book_price .storeSpan {
+    font-size: 1.3rem;
+    color: #419EF0;
+    display: inline-block;
+}
+.header .book_price .sold {
+    font-size: 1.4rem;
+    background-color: #FF6363;
+    color: #fff8ea;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 6.8rem;
+    padding: 0.1rem;
+    width: 1.7rem;
+    height: 1.7rem;
+    text-align: center;
+    line-height: 1.7rem;
+}
+.header .book_price .sTextSpan {
+    font-size: 1.3rem;
+    color: #FF6363;
+    display: inline-block;
+}
+.header .send_type {
+    margin-top: 1.5rem;
+    padding-left: 2rem;
+    font-size: 1.2rem;
+    color: #999999;
+}
+.address {
+    margin-top: 0.8rem;
+    background-color: white;
+}
+.title {
+    padding-left: 2rem;
+    border-bottom: 1px solid gainsboro;
+    height: 4.6rem;
+    line-height: 4.6rem;
+}
+.title>img {
+    width: 0.4rem;
+    height: 1.5rem;
+    vertical-align: center;
+    margin-right: 0.7rem;
+}
+.title span {
+    font-size: 1.9rem;
+    font-weight: bold;
+}
+.address .content {
+    margin-top: 2rem;
+    padding-left: 2rem;
+    padding-bottom: 1.5rem;
+}
+.address .content .user p{
+    display: inline-block;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: #333333;
+}
+.address .content .userAdd #distpicker1 {
+    display: inline-block;
+    width: 70%;
+    margin-left: 1rem;
+    margin-top: 1.5rem;
+}
+.address .content .userAdd #distpicker1 select{
+    width: 30%;
+    height: 3rem;
+    vertical-align: middle;
+    color: #999999;
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    padding-left: 1rem;
+    background-color: #ffffff;
+}
+.address .content .userName {
+    margin-top: 1.5rem;
+}
+
+.address .content .userName input {
+    width: 63%;
+    margin-left: 1.2rem;
+    margin-top: 0.1rem;
+    height: 3rem;
+    padding-left: 1rem;
+    color: #999999;
+    font-size: 1.2rem;
+}
+
+.address .content .userLink {
+    margin-top: 1.5rem;
+}
+.address .content .userLink input {
+    width: 63%;
+    margin-left: 1.2rem;
+    margin-top: 0.1rem;
+    height: 3rem;
+    padding-left: 1rem;
+    color: #999999;
+    font-size: 1.2rem;
+}
+.address .content .userTalk {
+    margin-top: 1.5rem;
+    text-align: left;
+}
+.address .content .userTalk textarea{
+    width: 63%;
+    margin-left: 1rem;
+    vertical-align: top;
+    padding-left: 1rem;
+    height: 5.5rem;
+    padding-top: 1rem;
+    font-size: 1.2rem;
+}
+.address .content .userTalk>div{
+    display: inline-block;
+}
+.introduce {
+    margin-top: 0.8rem;
+    background-color: white;
+}
+.introduce .content {
+    padding: 1.5rem 2rem 1.5rem 2rem;
+    margin: 0;
+}
+.introduce .content p {
+    text-indent: 1.6rem;
+    font-size: 1.6rem;
+    line-height: 3.2rem;
+    letter-spacing: 0.15rem;
+    margin: 0;
+}
+.Course_outline {
+    background-color: white;
+    margin-top: 0.8rem;
+}
+.Course_outline .content {
+    margin: 0;
+    padding: 1.5rem 2rem 1.5rem 2rem;
+}
+.Course_outline .content img {
+   width: 100%;
+}
+.Course_recommended {
+    width: 100%;
+    margin-top: 0.8rem;
+    background-color: white;
+}
+.Course_recommended .content {
+    padding: 1.5rem 2rem 1.5rem 2rem;
+}
+.Course_recommended .content p {
+    text-indent: 1.6rem;
+    font-size: 1.6rem;
+    line-height: 3.2rem;
+    letter-spacing: 0.15rem;
+    margin: 0;
+}
+.submit {
+    width: 100%;
+    background-color: #FF6363;
+    font-size: 1.9rem;
+    color: white;
+    font-weight: bold;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    height: 5rem;
+    line-height: 5rem;
+    z-index: 12;
+}
+
+.pay {
+    width: 100%;
+    position: fixed;
+    bottom: 8rem;
+    display: none;
+    z-index: 20;
+    height: 14rem;
+    background-color: #F1F1F1;
+}
+.pay p {
+    display: inline-block;
+}
+.pay div{
+    width: 100%;
+    height: 5rem;
+    padding: 1.5rem 1rem 1.5rem 1rem;
+    position: relative;
+    background-color: white;
+}
+.pay .weXin {
+    border-bottom: 1px solid #cccccc;
+}
+.pay div .logo {
+    width: 5rem;
+    height: 5rem;
+    vertical-align: middle;
+}
+ .pay div p {
+    font-size: 1.4rem;
+    color: #333333;
+     margin-left: 1rem;
+}
+ .pay div .payType {
+     position: absolute;
+     right: 5rem;
+     top: 3rem;
+     width: 2.6rem;
+     height: 2.6rem;
+ }
+ .zhe {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: black;
+     z-index: 15;
+     opacity: 0.7;
+     display: none;
+ }
+ #bookDetails .wa {
+     width: 7rem;
+     height:7rem;
+     opacity: 0.8;
+     display: none;
+     z-index: 22;
+     text-align: center;
+     position: fixed;
+     background-color: black;
+     left: 40%;
+     right: 35%;
+     top: 30%;
+     border-radius: 0.3rem;
+ }
+#bookDetails .wa img {
+    width: 3rem;
+    margin-top: 2rem;
+}
+
+
+

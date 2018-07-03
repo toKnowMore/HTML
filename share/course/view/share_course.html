@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,maximum-scale=0.5,minimum-scale=0.5,initial-scale=1,user-scalable=no">
+	<meta name="format-detection" content="telephone=no, address=no">
+	<script src="../../global/jquery.min.js"></script>
+	<script src="../js/uaCheck.js"></script>
+	<script src="../../global/main.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+	<script src="../js/ConfigInfo.js"></script>
+	<title>课程分享</title>
+	<style type="text/css">
+		html,body {
+			font-size: 10px;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			background-color: gainsboro;
+		}
+
+		#album {
+			padding-bottom: 11.5rem;
+		}
+		#album>section {
+			padding-left: 4rem;
+			padding-right: 4rem;
+			background-color: white;
+		}
+
+		#album .intro .name1 {
+			padding-top: 3rem;
+			padding-bottom: 3rem;
+			border-bottom: 1px solid gainsboro;
+		}
+
+		#album .intro .name1 span {
+			font-size: 4rem;
+			color: #333333;
+			font-weight: bold;
+		}
+
+		#album .intro .des1 {
+			font-size: 3.2rem;
+			color: #333333;
+			line-height: 6rem;
+			padding-top: 3rem;
+			padding-bottom: 3rem;
+			letter-spacing: 0.1rem;
+			text-justify: inter-ideograph;
+		}
+
+		#album .content {
+			margin-top: 1.6rem;
+		}
+
+		#album .content .same {
+			padding-top: 3rem;
+			padding-bottom: 3rem;
+			border-bottom: 1px solid gainsboro;
+		}
+
+		#album .content .same img {
+			margin-right: 2rem;
+			vertical-align: text-bottom;
+		}
+
+		#album .content .same span {
+			font-size: 3.8rem;
+			color: #333333;
+		}
+
+		#album .content .des {
+			padding-top: 2.6rem;
+			padding-bottom: 2.6rem;
+			font-size: 3rem;
+			color: #666666;
+			line-height: 6rem;
+			letter-spacing: 0.2rem;
+			text-justify: inter-ideograph;
+		}
+
+		#album .content .words img {
+			vertical-align: bottom;
+		}
+
+
+		#album .content .liuyan .top img {
+			vertical-align: middle;
+		}
+
+		.buy {
+			width: 100%;
+			position: fixed;
+			bottom: 0;
+			z-index: 5;
+			padding-left: 0;
+		}
+
+		.buy div {
+			width: 50%;
+			display: inline-block;
+			text-align: center;
+			padding: 1rem 0 1rem 0;
+			float: left;
+		}
+
+		.buy div a{
+			display: inline-block;
+			width: 100%;
+			line-height: 8rem;
+			text-decoration: none;
+			font-size: 3.5rem;
+			color: #FFFFFF;
+		}
+
+		.buy .price {
+			background-color: #447fea;
+		}
+
+		.buy .buyNow {
+			background-color: #ff6363;
+		}
+
+		video {
+			object-fit: fill;
+			width: 100%;
+			height: 45rem;
+		}
+
+		header {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+
+		header .controls {
+			position: absolute;
+			background-color: black;
+			opacity: 0.6;
+			width: 100%;
+			bottom: 0;
+			padding: 2rem 0 2rem 0;
+			height: 5rem;
+			z-index: 99;
+		}
+
+		header .controls>img {
+			width: 5rem;
+		}
+
+		header .controls .center {
+			display: inline-block;
+			width: 52%;
+			position: absolute;
+			top: 43%;
+			left: 30%;
+		}
+
+		header .controls .center .line {
+			width: 100%;
+			height: 0.7rem;
+			background-color: white;
+			display: inline-block;
+			border-radius: 1rem;
+		}
+
+		header .controls .center img {
+			width: 3rem;
+			position: absolute;
+			left: -5%;
+			top: -60%;
+		}
+
+		header .controls span {
+			font-size: 2rem;
+			color: white;
+			margin: 0 1rem 0 1rem;
+			position: absolute;
+			top: 39%;
+			letter-spacing: 0.1rem;
+		}
+
+		header .controls .s1 {
+			left: 15%;
+		}
+
+		header .controls .s2 {
+			right: 6%;
+		}
+
+
+		header .controls .first {
+			position: absolute;
+			left: 5%;
+		}
+		header>img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 10;
+		}
+		.bofang img {
+			width: 70%;
+			margin-top: 2rem;
+		}
+		.radio .center {
+			width: 70%;
+			display: inline-block;
+			position: absolute;
+			left: 15%;
+			right: 15%;
+		}
+		.radio .center .line {
+			background-color: gainsboro;
+			width: 100%;
+			height: 0.3rem;
+		}
+		.radio .center img {
+			width: 2rem;
+			position: absolute;
+			top: -0.8rem;
+		}
+		.radio span {
+			font-size: 2.5rem;
+			opacity: 0.7;
+			margin-top: -2rem;
+		}
+		.radio>img {
+			margin-left: 43%;
+			margin-right: 40%;
+			margin-top: 3rem;
+			width: 8rem;
+			left: 45%;
+			bottom: 10%;
+		}
+		.red {
+			color: red;
+			font-weight: bold;
+		}
+	</style>
+<body>
+<div id="album" class="playvideo">
+	<header class="zy_media">
+		<div class="controls">
+			<img src="../img/jingxuanzhuanji_bofang_icon@3x.png" class="first" />
+			<span class="s1">00:00</span>
+			<div class="center">
+				<div class="line"></div>
+				<img src="../img/icon_voice_position.png" class="second" />
+			</div>
+			<span class="s2"></span>
+		</div>
+		<img src="" alt="">
+	</header>
+	<div id="modelView"></div>
+	<section class="intro">
+		<div class="name1">
+			<span></span>
+		</div>
+		<div class="des1"></div>
+	</section>
+</div>
+<div class="buy">
+	<div class="price">
+		<a href="javascript:void(0)">打开APP</a></div>
+	<div class="buyNow">
+		<a href="javascript:void(0)">下载APP</a></div>
+</div>
+<script type="text/javascript">
+	var url = location.href.split("#")[0];
+	var Url = location.href;
+
+    function GetRequest() {
+        var url = location.search; //获取url中"?"符后的字串
+        var theRequest = {};
+        if(url.indexOf("?") !== -1) {
+            var str = url.substr(1);
+            var strs = str.split("&");
+            for(var i = 0; i < strs.length; i++) {
+                theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+
+    var Request = GetRequest();
+    var Object_id;
+    Object_id = Request['course_id']; //专辑的唯一代码
+
+    //专辑课程详情
+    $.ajax({
+        url: $api.course_details,
+        type: 'POST',
+        data: {
+            'course_id': Object_id
+        },
+        dataType: "json",
+        success: function(result) {
+
+            var data = result.data;
+            console.log(data);
+            var lecturer_name = data['lecturer_name'];
+            //根据空格进行换行
+            var lecturer_desc = data['lecturer_desc'].replace(/\s+/g, "<br>");
+
+            $(".intro .name1 span").text(lecturer_name);
+            $(".intro .des1").html(lecturer_desc);
+            var course_mark = data['course_mark'];
+            //试听时间
+            var try_Time = data['course_freeLength'];
+            var time = formatSeconds(try_Time);
+
+            var img_plus = data['img_plus'];
+
+            //视频
+			var mp4_url = data['course_url'];
+                 $(".radio").css("display", "none");
+                $(".zy_media").css("display", "block");
+                $(".controls .s2").text(time);
+
+                $("#album .intro").css(
+                    "margin-top", "46rem"
+                );
+                var course_desc = JSON.parse(data['course_desc']);
+
+                for (var i= 0; i< course_desc.length; i++) {
+                    var section = $("<section></section>").addClass("content");
+                    $(".intro").after($(section));
+                    var name = $("<div></div>").addClass("same").prependTo($(section));
+                    $("<img />").attr("src", "../img/titleBg.png").appendTo($(name));
+                    $("<span></span>").text(course_desc[i].paragraph_title).appendTo($(name));
+                    var content = course_desc[i].paragraph_content.replace(/\r\n/g, "<br>");
+                    if (course_desc[i].font_color === 'red') {
+                        $("<div></div>").addClass("des red").html(content).appendTo($(section));
+                    } else {
+                        $("<div></div>").addClass("des").html(content).appendTo($(section));
+                    }
+                }
+            //视频
+                if(browser.versions.ios){
+                    var myVideo = '<video autobuffer playsinline id="myVideo"  -webkit-playsinline webkit-playsinline  x5-playsinline x-webkit-airplay="true"></video>';
+                    $(".zy_media").prepend($(myVideo));
+				}else if(browser.versions.android){
+                	var myVideo = '<video autobuffer playsinline id="myVideo"  -webkit-playsinline webkit-playsinline  x5-playsinline x-webkit-airplay="true" x5-video-player-fullscreen="true" x5-video-player-type="h5"></video>';
+                    $(".zy_media").prepend($(myVideo));
+				}
+
+                var video = document.getElementById("myVideo");
+
+                $("header>img").attr("src", img_plus).appendTo($("header"));
+                $("#myVideo").attr("src", mp4_url);
+                $(".controls .s2").text(time);
+
+                var timer;
+                //开始函数
+                function start() {
+                    var length = $(".controls .center .line").width();
+
+                    video.play();
+                    $(".controls .first").attr("src", "../img/jingxuanzhuanji_zanting_icon@3x.png");
+                    $("header>img").css("display", "none");
+                    timer = setInterval(function() {
+                        var nowTime = video.currentTime;
+                        //点击开始滚动条开始滚动
+                        var pencent = nowTime / try_Time * 100;
+                        $(".controls .center img").css("left", pencent - 5 + "%");
+                        $(".controls .s1").text(formatSeconds(nowTime));
+                        if(nowTime >= try_Time) {
+                            end();
+                        }
+                    }, 10);
+                }
+
+                //结束函数
+                function end() {
+                    video.pause();
+                    $(".controls .first").attr("src", "../img/jingxuanzhuanji_bofang_icon@3x.png");
+
+                    $("header>img").css("display", "block");
+                    video.currentTime = 0;
+                    clearInterval(timer);
+                }
+
+                //点击播放按钮
+                var st = false;
+                $(".controls .first").click(function() {
+                    if(!st) {
+                        start();
+                        st = true;
+                    } else if(st) {
+                        end();
+                        st = false;
+                    }
+                });
+
+            $(".buy .price").click(function() {
+                video.pause();
+                if(browser.versions.ios){
+
+                	window.location.href = "yuzhilai://"; 
+                	setTimeout(function() {          
+                		window.location.href = $api.download;
+
+                		window.location.href = $api.download;  //为什么要加两遍我下面会说到					     
+                	}, 1000)
+
+                }else if(browser.versions.android) {
+                	window.location.href = "com.sharker://**";
+
+                	setTimeout(function() { 
+                		window.location.href = $api.download;     
+                	}, 1000)
+                }
+            });
+            $(".buy .buyNow").click(function() {
+                video.pause();
+                window.location.href = $api.download;
+            });
+
+            getConfig(url, data.course_name, data.course_mark, data.img_plus, Url);
+        },
+        error: function() {
+            alert("error");
+        }
+    });
+
+</script>
+</body>
+</html>

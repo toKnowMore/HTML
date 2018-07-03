@@ -1,0 +1,194 @@
+html,body {
+    margin: 0;
+    padding: 0;
+}
+#box {
+    background-color: #fdf2de;
+    width: 100%;
+    height: 100%;
+}
+.header {
+    width: 100%;
+}
+.header img {
+    width: 100%;
+}
+.container {
+    width: 100%;
+}
+.container .welcome {
+    /*margin-top: 1.06rem;*/
+    font-size: 0.28rem;
+    color: #936546;
+    padding-left: 0.6rem;
+}
+.container .res {
+    /*margin-top: 0.2rem;*/
+    padding-left: 0.6rem;
+    font-size: 0.38rem;
+    color: #936546;
+    font-weight: bold;
+}
+.content {
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    padding-top: 0.2rem;
+}
+.inputDiv {
+    margin-top: 0.56rem;
+    border-bottom: 1px solid #936546;
+    padding-bottom: 0.2rem;
+    padding-left: 0.15rem;
+}
+.inputDiv .phone {
+    width: 0.4rem;
+    margin-right: 0.15rem;
+    vertical-align: middle;
+}
+.inputDiv .code{
+    width: 0.43rem;
+    margin-right: 0.15rem;
+    vertical-align: middle;
+}
+.inputDiv input {
+    padding-left: 0.05rem;
+    border: none;
+    background-color: #fdf2de;
+    font-size: 0.32rem;
+    color: #333333;
+    height: 0.5rem;
+    width: 3rem;
+    margin-right: 0.5rem;
+}
+.inputDiv .inputCode {
+    width: 2.5rem;
+}
+.inputDiv input::-webkit-input-placeholder {
+    color: #333333;
+    font-size: 0.32rem;
+}
+.inputDiv .getCode {
+    font-size: 0.28rem;
+    color: #936546;
+    float: right;
+    padding-top: 3px;
+    padding-right: 10px;
+}
+.submit {
+    width: 6.7rem;
+    height: 1rem;
+    line-height: 1rem;
+    background-color: #936546;
+    color: #ffffff;
+    font-size: 0.46rem;
+    margin: 1rem auto 0;
+    text-align: center;
+    border-radius: 0.1rem;
+}
+.footer {
+    width: 100%;
+    margin-top: -20px;
+}
+.footer img {
+    width: 100%;
+}
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3){
+    /*iphoneX*/
+    #box {
+        padding-top: 0.2rem;
+        padding-bottom: 0.3rem;
+    }
+    .container .welcome {
+        margin-top: 1.06rem;
+    }
+    .container .res {
+        margin-top: 0.2rem;
+    }
+    .footer {
+        margin-top: 0;
+    }
+}
+@media only screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio:2){
+    /*iphone6*/
+    .container .welcome {
+        margin-top: 0.96rem;
+    }
+    .container .res {
+        margin-top: 0.15rem;
+    }
+}
+@media only screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio:2){
+    /*iphone6*/
+    .container .welcome {
+        margin-top: 1.06rem;
+    }
+    .container .res {
+        margin-top: 0.1rem;
+    }
+}
+@media only screen and (device-width:414px) and (device-height:736px) and (-webkit-device-pixel-ratio:3){
+    /*iphone6plus*/
+    .container .welcome {
+        margin-top: 1.06rem;
+    }
+    .container .res {
+        margin-top: 0.1rem;
+    }
+}
+/**
+ *  Galaxy S4 landscape
+ */
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 3)
+ {
+    .container .welcome {
+        margin-top: 1.06rem;
+    }
+    .container .res {
+        margin-top: 0.1rem;
+    }
+}
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 2)
+{
+    .container .welcome {
+        margin-top: 1.06rem;
+    }
+    .container .res {
+        margin-top: 0.1rem;
+    }
+}
+@media screen
+and (device-width: 360px)
+and (device-height: 740px)
+and (-webkit-device-pixel-ratio: 2)
+{
+    .container .welcome {
+        margin-top: 1.06rem;
+    }
+    .container .res {
+        margin-top: 0.2rem;
+    }
+    .footer {
+        margin-top: 0;
+    }
+}
+@media screen
+and (device-width: 768px)
+and (device-height: 1024px)
+and (-webkit-device-pixel-ratio: 2)
+{
+    .container .welcome {
+        margin-top: 0.86rem;
+    }
+    .container .res {
+        margin-top: 0.1rem;
+    }
+    .footer {
+          margin-top: -20px;
+      }
+}

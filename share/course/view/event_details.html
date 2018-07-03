@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,maximum-scale=0.5,minimum-scale=0.5,initial-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no, address=no">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <script src="../../global/jquery.min.js"></script>
+    <script src="../../global/main.js"></script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="../js/ConfigInfo.js"></script>
+    <style type="text/css">
+
+        #box {
+            padding: 1rem;
+            /*padding-bottom: 4rem;*/
+        }
+
+        .c-time {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .linen {
+            width: 100%;
+            height: 1px;
+            background-color: #EFEFEF;
+        }
+
+        .audioDiv {
+            width: 100%;
+            height: 5.5rem;
+            margin-top: 1.2rem;
+            background-color: #f8f8f8;
+            border: 1px solid #ededed;
+        }
+
+        .audioDiv div {
+            display: inline-block;
+        }
+
+        .audioDiv .leftDiv {
+            margin-left: 3%;
+            margin-right: 3%;
+        }
+
+        .audioDiv .leftDiv img {
+            width: 3rem;
+        }
+
+        .audioDiv .rightDiv {
+            width: 78%;
+        }
+
+        .audioDiv .rightDiv .controls p {
+            display: inline-block;
+        }
+
+        .rightDiv > p {
+            margin-top: 5%;
+            font-size: 1rem;
+            color: #666666;
+            display: inline-block;
+        }
+
+        .controls {
+            margin-top: 0.8rem;
+            width: 100%;
+        }
+
+        .controls > p {
+            font-size: 0.9rem;
+            color: #666666;
+        }
+
+        .controls .startTime {
+            margin-right: 4%;
+        }
+
+        .controls .endTime {
+            margin-left: 3%;
+        }
+
+        .controls .centerDiv {
+            width: 60%;
+            position: relative;
+        }
+
+        .controls .centerDiv .line {
+            width: 100%;
+            background-color: #cccccc;
+            border-radius: 0.1rem;
+            height: 0.2rem;
+        }
+
+        .centerDiv > img {
+            position: absolute;
+            top: 30%;
+            left: -5%;
+            width: 1rem;
+        }
+
+        .c-content-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        .c-content-text {
+            margin-top: 1rem;
+            text-align: justify;
+            font-size: 1.2rem;
+            line-height: 2.4rem;
+        }
+
+        .c-content-image {
+            width: 100%;
+        }
+
+        .c-content-imgDiv {
+            width: 100%;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .c-video-box {
+            border: 1px solid black;
+            width: 99%;
+            height: 12rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+
+        .c-comment-header {
+            margin-top: 1rem;
+        }
+
+        .c-comment-header-img {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+        }
+
+        .c-comment-username {
+            color: #8f8f92;
+            font-size: 1rem;
+            margin-top: 1rem;
+            margin-left: 1rem;
+        }
+
+        .c-comment-time {
+            color: #8f8f92;
+            font-size: 0.9rem;
+            float: right;
+            margin-top: 0.5rem;
+        }
+
+        .c-comment-text {
+            margin-left: 2rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.5rem;
+        }
+
+
+        .button {
+            width: 100%;
+            height: 3.6rem;
+            background-color: #ff6363;
+            position: fixed;
+            bottom: 0;
+            text-align: center;
+            line-height: 3.6rem;
+            display: none;
+            font-size: 1.3rem;
+            color: white;
+            letter-spacing: 0.1rem;
+        }
+
+    </style>
+<body>
+<div id="box">
+
+    <h2 class="c-title" style="font-weight: bold; opacity: 0.8"></h2>
+    <h4 class="c-time"></h4>
+    <div class="linen"></div>
+
+    <div class="audioDiv">
+        <audio src="" id="audio" preload="auto"></audio>
+        <div class="leftDiv">
+            <img src="../img/icon_play.png" alt="">
+        </div>
+        <div class="rightDiv">
+            <p>春节前人力资源三大核心</p>
+            <div class="controls">
+                <p class="startTime">00:00</p>
+                <div class="centerDiv">
+                    <div class="line"></div>
+                    <img src="../img/icon_voice_position.png" alt="">
+                </div>
+                <p class="endTime">00:00</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="c-text-box"></div>
+
+    <div class="c-video-box">
+        <video class="c-video-player" src="" controlslist="nodownload" poster="" width="100%" height="100%"
+               controls=""></video>
+    </div>
+</div>
+<div class="button">
+    立即报名线下课程
+</div>
+<script type="text/javascript">
+
+    function GetRequest() {
+        var url = location.search; //获取url中"?"符后的字串
+        var theRequest = {};
+        if(url.indexOf("?") !== -1) {
+            var str = url.substr(1);
+            var strs = str.split("&");
+            for(var i = 0; i < strs.length; i++) {
+                theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+
+    var Request = GetRequest();
+    var is_app;
+    var event_id;
+    var course_id;
+
+    is_app = Request['is_app'];//课程id唯一代码
+    event_id = Request['event_id'];
+    course_id = Request['course_id'];
+    if (is_app !== 1) {
+        $(".c-btn-comment").css("display", "none");
+    }
+
+    if (course_id) {
+        $(".button").css("display", "block");
+        $("#box").css("paddingBottom", "4rem");
+    }
+
+    $(".button").click(function () {
+        window.location.href = "../../../signUp/signUp.html?course_id=" + course_id;
+    });
+
+    var url = location.href.split("#")[0];
+    var Url = location.href;
+
+    $.ajax({
+        url: $api.event_details,
+        async: false,
+        type: 'POST',
+        data: {
+            event_id: event_id
+        },
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            // 加载缩略图,加载音频资源,标题
+            $('title').html(data.data.event_name);
+            $('.c-title').text(data.data.event_name);
+            $('.c-time').text(data.data.create_time);
+
+            if (data.data.event_voice === undefined || data.data.event_voice === "") {
+                $('.audioDiv').css('display', 'none');
+            } else {
+                $('.audioDiv').css('display', 'block');
+                $('#audio').attr("src", data.data.event_voice);
+                $(".audioDiv>.rightDiv>p").text(data.data.event_name);
+                load();
+            }
+            if (data.data.event_video === undefined || data.data.event_video === "") {
+                $('.c-video-box').css('display', 'none');
+            } else {
+                $('.c-video-box').css('display', 'block');
+                $('.c-video-player').attr({'src': data.data.event_video, 'poster': data.data.img_plus});
+
+            }
+
+            var event_content = JSON.parse(data.data.event_content);
+
+            for (var i = 0; i < event_content.length; i++) {
+                if (event_content[i].paragraph_type === "title") {
+                    var title = "<li class='c-content-title'>" + event_content[i].paragraph_body + "</li>";
+                    $('.c-text-box').append(title);
+                }  else if (event_content[i].paragraph_type === "img") {
+                    var imgLi = $("<li class='c-content-imgDiv'></li>");
+                    var image = "<img class='c-content-image' src='" + event_content[i].paragraph_body + "'/>";
+                    $(imgLi).append(image);
+                    $('.c-text-box').append(imgLi);
+                } else if (event_content[i].paragraph_type === "text") {
+                    var text = "<li class='c-content-text'>" + event_content[i].paragraph_body + "</li>";
+                    $('.c-text-box').append(text);
+
+                }
+               $('.c-text-box li').eq(i).css({
+                    'color': event_content[i].font_color,
+                    'backgroundColor': event_content[i].bg_color,
+                    'textAlign': event_content[i].textAlign,
+                   'fontSize': event_content[i].font_size,
+                });
+                if(event_content[i].font_border){
+                    $(".c-text-box li").eq(i).css({
+                        'border': '1px solid #ff6363',
+                        'padding': '5px'
+                    });
+                }
+
+            }
+
+            var comments = data.data.event_comments;
+            for (var i = 0; i < comments.length; i++) {
+                var imgsrc = comments[i].user_avatar;
+                if (comments[i].user_avatar === "" || comments[i].user_avatar === undefined) {
+                    imgsrc = "../img/xueyuanliuyan_touxiang_image.png";
+                }
+                var nickname = comments[i].user_nickname;
+                if (comments[i].user_nickname === "" || comments[i].user_nickname === undefined) {
+                    nickname = "听者分享";
+                }
+                var text = "<div><div class='c-comment-header'>" +
+                    "<img class='c-comment-header-img' src='" +
+                    imgsrc + "'/>" +
+                    "<span class='c-comment-username'>" + nickname + "</span>" +
+                    "<span class='c-comment-time'>" + comments[i].create_time + "</span>" +
+                    "</div>" +
+                    "<p class='c-comment-text'>" + comments[i].comment_content + "</p>" +
+                    "<div class='linen'></div>" +
+                    "</div>";
+                $('.c-comment-box').append(text);
+            }
+
+            getConfig(url, data.data.event_name, '精彩尽在预知来', data.data.img_plus, Url);
+        }
+    });
+
+    $('.c-btn-comment').on('click', function () {
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if (isAndroid) {
+            window.toEventComment.toEventComment(event_id);
+        } else if (isiOS) {
+            window.webkit.messageHandlers.sendName.postMessage(event_id);
+        }
+    });
+
+    $('.c-more-comment-box').on('click', function () {
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if (isAndroid) {
+            window.toMoreEventComment.toMoreEventComment(event_id);
+        } else if (isiOS) {
+            window.webkit.messageHandlers.seeMoreComment.postMessage(event_id);
+        }
+    });
+
+
+    function stopNative() {
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if (isAndroid) {
+            window.stopNativeAuto.stopNativeAuto();
+        } else if (isiOS) {
+            window.webkit.messageHandlers.stopNativeAuto.postMessage();
+        }
+    }
+
+    var str = false;
+    $(".leftDiv>img").click(function () {
+        if (!str) {
+            $(".leftDiv>img").attr("src", "../img/icon_pause.png");
+            str = true;
+            play();
+        } else if (str) {
+            $(".leftDiv>img").attr("src", "../img/icon_play.png");
+            str = false;
+            stop();
+        }
+    });
+
+    var timer;
+
+    function play() {
+        var audio = document.querySelector("#audio");
+        var long = audio.duration;
+        audio.currentTime = 0;
+        $(".endTime").text(formatSeconds(long));
+        audio.play();
+        timer = setInterval(function () {
+            var currentTime = audio.currentTime;
+
+            $(".startTime").text(formatSeconds(currentTime));
+
+            var pencent = currentTime / long * 100;
+
+            $(".centerDiv>img").css("left", pencent - 5 + '%');
+            if (pencent >= 100) {
+                stop();
+            }
+        }, 100);
+    }
+
+    function stop() {
+        var audio = document.querySelector("#audio");
+        audio.pause();
+        clearInterval(timer);
+    }
+
+    function load(){
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            var audio = document.getElementById('audio');
+            audio.load();//load重新加载音频，实现苹果预加载
+        }, false);
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+a {
+    text-decoration: none;
+    color: white;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+html,body {
+    margin: 0;
+    padding: 0;
+}
+p {
+    margin: 0;
+}
+#box {
+    height: 100%;
+    background-color: #ffffff;
+}
+.header .title {
+    font-size: 0.4rem;
+    margin-bottom: 0.2rem;
+}
+.header .icon img {
+    width: 2.06rem;
+    height: 0.4rem;
+    vertical-align: text-top;
+    margin-right: 0.3rem;
+}
+.header .icon span{
+    display: inline-block;
+    font-size: 0.28rem;
+    color: #B2B2B2;
+}
+.header .icon {
+    margin-bottom: 0.4rem;
+}
+.header .desc {
+    font-size: 0.3rem;
+    color: #484848;
+    line-height: 0.5rem;
+    text-align: justify;
+}
+.header {
+    padding: 0.4rem 0.24rem 0 0.24rem;
+    margin-bottom: 0.4rem;
+}
+.container .input {
+    height: 1.14rem;
+    border-top: 1px solid #EDEDED;
+    line-height: 1.14rem;
+}
+.container .shopEmployees {
+    border-bottom: 1px solid #EDEDED;
+}
+.container .input img {
+    margin-left: 0.24rem;
+    margin-right: 0.2rem;
+    vertical-align: text-bottom;
+    width: 0.45rem;
+}
+.container .input p {
+    display: inline-block;
+    font-size: 0.34rem;
+}
+.container .input input {
+    border: none;
+    font-size: 0.34rem;
+    color: #4B4B4B;
+    float: right;
+    display: inline-block;
+    height: 1rem;
+    width: 32%;
+    padding-left: 0.24rem;
+    padding-top: 0.07rem;
+    padding-right: 0.34rem;
+}
+.container .input input::-webkit-input-placeholder{
+    color: #B2B2B2;
+}
+
